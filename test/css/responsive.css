@@ -271,7 +271,7 @@ input[type="submit"]{ clear:both; margin-top:10px; }
 	background-size: 240px 240px;
 }
 	.rb-grid li:nth-child(8):hover{
-	background-image:url('../images/purple_bg_2x.jpg');
+	background-image:url('../images/blue_bg.jpg');
 	background-size: 488px 240px;	
 }
 	.rb-grid li:nth-child(9):hover{

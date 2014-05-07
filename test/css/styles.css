@@ -291,13 +291,7 @@ h3 span{ background:#f5f5f5; width:auto; padding-left:5px; padding-right:5px; ma
 	background-repeat:no-repeat;
 	background-position:left bottom;
 }
-.rb-grid li:nth-child(9):hover{
-	background-image:url(../images/blue_bg.jpg);
-	width:488px;
-	height:240px;
-	background-repeat:no-repeat;
-	background-position:left bottom;
-}
+
 .rb-grid li:nth-child(9) { 
 	background: #99c342; 
 	-webkit-box-shadow: 0px 20px 20px -5px rgba(0, 0, 0, 0.2);
@@ -726,7 +720,7 @@ blockquote:after {
 
 /* Twitter */
 /* Twitter feed starts */
-.tweet { width:100%; z-index:3000; color:#999999; font-size:12px; }
+.tweet { width:100%; z-index:3000; color:#FFF; font-size:12px; }
 .tweet_list{ width:100%;}
 .tweet_list div{ margin:0px; padding:0px; list-style-type:none;}
 .tweet_list p{width:100%;}
