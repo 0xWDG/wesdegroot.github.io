@@ -1,185 +1,234 @@
-<style type="text/css">
+<html>
+	<head>
+		<title>XXX</title>
+		<style type="text/css">
 body {
-  background-color: #000;
+  background-color: 	#000;
 }
 
 .image {
-	background: grey;
-	min-height: 252px;
+	background: 		grey;
+	min-height: 		252px;
 }
 
 .orange {
-	background: #dc8d22;
-	min-height: 252px;
+	background: 		#dc8d22;
+	min-height: 		252px;
 }
 
 .btn_tweets {
-	background: #1383a7;
-	min-height: 252px;
+	background: 		#1383a7;
+	min-height: 		252px;
+}
+
+.btn_tweets .logo {
+	background: 		url('images/bgicon/twitter_bird.png') no-repeat left top;
+}
+
+.btn_tweets:hover .logo {
+	background: 		url('images/bgicon/twitter_bird_over.png') no-repeat left top;
 }
 
 .btn_tweets:hover {
-	background: url('images/blue_bg.jpg') #1383a7 no-repeat center bottom; 
-	min-height: 252px;
+	background: 		url('images/bg/blue_bg.jpg') #1383a7 no-repeat center bottom; 
+	min-height: 		252px;
 }
 
 .btn_portfolio {
-	background: #cb3657;
-	min-height: 252px;
+	background: 		#cb3657;
+	min-height: 		252px;
 }
 
 .btn_portfolio:hover {
-	background: url('images/red_bg.jpg') no-repeat center bottom; 
-	background-size: 100%
+	background: 		url('images/bg/red_bg.jpg') no-repeat center bottom; 
+	background-size: 	100%
 }
 
 .btn_services {
-	background: #cb3657;
-	min-height: 252px;
+	background: 		#cb3657;
+	min-height: 		252px;
 }
 
 .btn_services:hover {
-	background: url('images/red_bg.jpg') no-repeat left top; 
-	background-size: 100%
+	background: 		url('images/bg/red_bg.jpg') no-repeat left top; 
+	background-size: 	100%;
 }
 
 .btn_contact {
-	background: #9ac14b;
-	min-height: 252px;
+	background: 		#9ac14b;
+	min-height: 		252px;
 }
 
 .btn_contact:hover {
-	background: url('images/lightgreen_bg.jpg') no-repeat right top; 
-	min-height: 252px;
-	background-size: 100%
+	background: 		url('images/bg/lightgreen_bg.jpg') no-repeat right top; 
+	min-height: 		252px;
+	background-size: 	100%;
 }
 
 .btn_vCard {
-	background: #9e49a2;
-	min-height: 252px;
+	background: 		#9e49a2;
+	min-height: 		252px;
 }
 
 .btn_vCard:hover {
-	background: url('images/pink_bg.jpg') no-repeat left top; 
-	min-height: 252px;
-	background-size: 100%
+	background: 		url('images/bg/pink_bg.jpg') no-repeat left top; 
+	min-height: 		252px;
+	background-size: 	100%;
 }
 
 .btn_resume {
-	background: #24ad92;
-	min-height: 252px;
+	background: 		#24ad92;
+	min-height: 		252px;
 }
 
 .btn_resume:hover {
-	background: url('images/green_bg.jpg') no-repeat left top; 
-	min-height: 252px;
-	background-size: 100%
+	background: 		url('images/bg/green_bg.jpg') no-repeat left top; 
+	min-height: 		252px;
+	background-size: 	100%;
 
 }
 
 .btn_aboutme {
-	background: #35afb4;
-	min-height: 252px;
+	background: 		#35afb4;
+	min-height: 		252px;
 }
 
 .btn_aboutme:hover {
-	background: url('images/darkblue_bg.jpg') no-repeat center top; 
-	min-height: 252px;
-	background-size: 100%
+	background: 		url('images/bg/darkblue_bg.jpg') no-repeat center top; 
+	min-height: 		252px;
+	background-size: 	100%
 }
-</style>
 
+.rightdown {
+	width:  			61px;
+	height: 			61px;
+	float:  			right;
+	margin-top: 		192px; 
+	margin-right: 		5px; 
+}
 
-<div id='content'>
-	<div id='choose'>
-	 <table height='5%'></table>
-	 <table width="90%">
-	 	<tr>
-	 	<td width='50%'>
-	 		<div class='image'>
-	 			HIGHLIGHTED
-	 		</div>
-	 	</td>
-	 	<td width='25%'>
-	 		<div class='btn_aboutme'>
-	 			About me
-	 		</div>
-	 	</td>
-	 	<td width='25%'>
-	 		<div class='btn_portfolio'>
-	 			Portfolio
-	 		</div>
-	 	</td>
-	 	</tr>
-	 </table>
-	 <table width="90%">
-	 	<tr>
-	 	<td width='25%'>
-	 		<div class='btn_resume'>
-	 			Resume
-	 		</div>
-	 	</td>
-	 	<td width='25%'>
-	 		<div class='btn_vCard'>
-	 			Download vCard
-	 		</div>
-	 	</td>
-	 	<td width='50%'>
-	 		<div class='orange'>
-	 			Social Media...
-	 		</div>
-	 	</td>
-	 	</tr>
-	 </table>
-	 <table width="90%">
-	 	<tr>
-	 	<td width='25%'>
-	 		<div class='btn_services'>
-	 			Services
-	 		</div>
-	 	</td>
-	 	<td width='50%'>
-	 		<div class='btn_tweets'>
-	 			<center>
-	 				<a  class="twitter-timeline"
-	 					href="https://twitter.com/wesdegroot" 
-	 					width="100%" 
-	 					data-chrome="nofooter transparent" 
-	 					data-widget-id="465484716523528192">
-	 				Tweets van @wesdegroot
-	 				</a>
+.content {
+    top: 				50;
+    bottom: 			50; 
+    left: 				0;
+    right: 				0;
+    margin: 			auto;
+    position: 			absolute;
+}
+		</style>
+	</head>
+	<body>
+		<center>
+			<div class='content' id='content'>
+				<div id='choose'>
+	 				<table height='5%'>
+	 					
+	 				</table>
 
-					<script>
-						!function(d,s,id){
-								var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
-								if(!d.getElementById(id)){
-									js=d.createElement(s);
-									js.id=id;
-									js.src=p+"://platform.twitter.com/widgets.js";
-									fjs.parentNode.insertBefore(js,fjs);
-								}
-						}(document,"script","twitter-wjs");
-						</script>
-				</center>
+	 				<table width="90%">
+	 					<tr>
+	 						<td width='50%'>
+	 							<div class='image'>
+	 								HIGHLIGHTED
+	 							</div>
+	 						</td>
+	 						<td width='25%'>
+	 							<div class='btn_aboutme'>
+	 								About me
+	 							</div>
+	 						</td>
+	 						<td width='25%'>
+	 							<div class='btn_portfolio'>
+	 								Portfolio
+	 							</div>
+	 						</td>
+	 					</tr>
+	 				</table>
+	 				
+	 				<table width="90%">
+	 					<tr>
+	 						<td width='25%'>
+	 							<div class='btn_resume'>
+	 								Resume
+	 							</div>
+	 						</td>
+	 						<td width='25%'>
+	 							<div class='btn_vCard'>
+	 								Download vCard
+	 							</div>
+	 						</td>
+	 						<td width='50%'>
+	 							<div class='orange'>
+	 								Social Media...
+	 							</div>
+	 						</td>
+	 					</tr>
+	 				</table>
+
+	 				<table width="90%">
+	 					<tr>
+	 						<td width='25%'>
+	 							<div class='btn_services'>
+	 								Services
+	 							</div>
+	 						</td>
+	 						<td width='50%'>
+	 							<div class='btn_tweets'>
+	 								<center>
+	 									<a  class="twitter-timeline"
+	 										href="https://twitter.com/wesdegroot" 
+	 										width="100%" 
+	 										data-chrome="nofooter transparent" 
+	 										data-widget-id="465484716523528192">
+	 											Loading tweets...
+	 									</a>
+
+										<script>
+											!function(d,s,id)
+											{
+												var js,
+													fjs = d.getElementsByTagName(s)[0],
+													p   = /^http:/.test(d.location)?'http':'https';
+
+												if(!d.getElementById(id))
+												{
+													js     = d.createElement(s);
+													js.id  = id;
+													js.src = p + "://platform.twitter.com/widgets.js";
+													fjs.parentNode.insertBefore(js,fjs);
+												}
+											}
+											(document,"script","twitter-wjs");
+										</script>
+										<div class='rightdown logo'>
+											&nbsp;
+										</div>
+									</center>
+								</div>
+							</td>
+	 				
+	 						<td width='25%'>
+	 							<div class='btn_contact'>
+									Contact
+ 								</div>
+							</td>
+	 					</tr>
+	 				</table>
+	 				<table height='5%'>
+	 					
+	 				</table>
+				</div>
+
+				<div id='about'>
+					XXXX
+				</div>
+
+				<div id='contact'>
+				</div>
+
+				<div id='portfolio'>
+				</div>
 			</div>
-		</td>
-	 	<td width='25%'>
-	 		<div class='btn_contact'>
-	 			Contact
-	 		</div>
-	 	</td>
-	 	</tr>
-	 </table>
-	 <table height='5%'></table>
-	</div>
-
-	<div id='about'>
-		XXXX
-	</div>
-
-	<div id='contact'>
-	</div>
-
-	<div id='portfolio'>
-	</div>
-</div>
+		</center>
+	</body>
+</html>
