@@ -1,9 +1,37 @@
 <html>
 	<head>
-		<title>XXX</title>
+		<title>Wesley de Groot</title>
 		<style type="text/css">
+@font-face {
+  font-family: 'chalk';
+  src: url('fonts/chalk.eot'); /* IE9 Compat Modes */
+  src: url('fonts/chalk.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/chalk.woff') format('woff'), /* Modern Browsers */
+       url('fonts/chalk.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('fonts/chalk.svg#a15b3369837405d4c98896089267207e') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  400;
+}
+
+@font-face {
+  font-family: 'ink';
+  src: url('fonts/ink.eot'); /* IE9 Compat Modes */
+  src: url('fonts/ink.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/ink.woff') format('woff'), /* Modern Browsers */
+       url('fonts/ink.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('fonts/ink.svg#02f84d367ffa396a5f9b84d17d289bf4') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  400;
+}
+
 body {
-  background-color: 	#000;
+  	background: 				url('back.jpg') no-repeat center center fixed; 
+  	-webkit-background-size: 	cover;
+  	-moz-background-size: 		cover;
+  	-o-background-size: 		cover;
+  	background-size: 			cover;
 }
 
 .image {
@@ -99,12 +127,20 @@ body {
 	background-size: 	100%
 }
 
+.hand {
+	cursor: 			hand;
+}
+
 .rightdown {
 	width:  			61px;
 	height: 			61px;
 	float:  			right;
 	margin-top: 		192px; 
 	margin-right: 		5px; 
+}
+
+.white a {
+	color: #fff;
 }
 
 .content {
@@ -115,9 +151,211 @@ body {
     margin: 			auto;
     position: 			absolute;
 }
+
+.center {
+    top: 				50;
+    bottom: 			50; 
+    left: 				0;
+    right: 				0;
+    margin: 			auto;
+    position: 			absolute;
+}
+
+.hidden {
+	display: 			none;
+}
+
+.big {
+	opacity: 0.8;
+	filter: alpha(opacity=80);
+}
 		</style>
+		<script type="text/javascript">
+		var lastopen = null;
+
+		function sleep(milliseconds)
+		{
+  			var start = new Date().getTime();
+  			
+  			for (var i = 0; i < 1e7; i++)
+  			{
+    			if ((new Date().getTime() - start) > milliseconds)
+    			{
+      				break;
+    			}
+  			}
+		}
+		
+		function isset ()
+		{
+
+  			var a = arguments,
+    			l = a.length,
+    			i = 0,
+    			undef;
+
+  			if (l === 0)
+  			{
+    			throw new Error('Empty isset');
+  			}
+
+  			while (i !== l)
+  			{
+    			if (a[i] === undef || a[i] === null)
+    			{
+      				return false;
+    			}
+
+    			i++;
+  			}
+
+  			return true;
+		}
+
+		function reset ( )
+		{
+			document.getElementById('MenuView').style.display = 'block';
+		}
+
+		function show ( )
+		{
+			fadeIn('MenuView', 1);
+		}
+
+
+		function hide ( )
+		{
+			fadeOut('MenuView', 10);
+		}
+
+		function fadeIn ( what, count )
+		{
+			//console.log("FadeIn: " + what + " | " + count + "%")
+			max = 9
+			if (what != 'MenuView')
+				max = 7;
+
+    		if (count <= max) 
+    		{
+    			document.getElementById(what).style.display = 'block';
+    			document.getElementById(what).style.opacity = '0.' + count;	
+    			document.getElementById(what).style.filter  = 'alpha(opacity=' + count + '0);';
+    			setTimeout(function()
+    								 {
+    								 	fadeIn(what,(count+1));
+    								 }, 100);
+    		}
+    		else
+    		{
+    			if (what != 'MenuView')
+  				{
+					document.getElementById(what).style.opacity = '0.8';
+    				document.getElementById(what).style.filter  = 'alpha(opacity=80);';
+    				document.getElementById(what).style.display = 'block';
+    			}
+    			else
+    			{
+					document.getElementById(what).style.opacity = '1.0';
+    				document.getElementById(what).style.filter  = 'alpha(opacity=100);';
+    				document.getElementById(what).style.display = 'block';	
+    			}
+    		}
+		}
+
+		function fadeOut ( what, count )
+		{
+			//console.log("FadeOut: " + what + " | " + count + "%")
+    		if (count >= 0) 
+    		{
+    			document.getElementById(what).style.opacity = '0.' + count;	
+    			document.getElementById(what).style.filter  = 'alpha(opacity=' + count + '0);';
+    			setTimeout(function()
+    								 {
+    								 	fadeOut(what,(count-1));
+    								 }, 100);
+    		}
+    		else
+    		{
+				document.getElementById(what).style.opacity = '1.0';	
+    			document.getElementById(what).style.filter  = 'alpha(opacity=100);';
+    			document.getElementById(what).style.display = 'none';
+    		}
+		}
+
+		function opend ( what )
+		{
+			if ( lastopen != null && lastopen != what) 
+			{
+				if (what != 'MenuView')
+					fadeOut(lastopen + 'View', 7);
+				else
+					fadeOut(lastopen + 'View', 10);
+			}
+
+			fadeOut('MenuView', 10);
+
+    		setTimeout(function()
+    							 {
+    							 	fadeIn(what + 'View',1);
+    							 }, 1000);
+
+			lastopen = what;
+		}
+		</script>
 	</head>
 	<body>
+
+	<center class="white">
+		<a href="#" onclick="opend('Menu');return false;">[HOME]</a>&nbsp;//&nbsp;
+		<a href="#" onclick="opend('Contact');return false;">Contact</a>&nbsp;//&nbsp;
+		&nbsp;//&nbsp;
+		&nbsp;//&nbsp;
+		&nbsp;//&nbsp;
+		&nbsp;//&nbsp;
+		&nbsp;//&nbsp;
+		&nbsp;//&nbsp;
+		<a href="?">Reload</a><br />
+
+
+	<div id='ContactView' class='hidden center big btn_contact'>
+		<img src="images/map.png" alt="MAP" height="25%" width="100%">
+        Hello<br /><br />
+        bla bla bla...<br />
+        This is a test...<br />
+        <br />
+        <br />
+        <a href='#' onclick="opend('Menu');return false;">Back</a>
+	</div>
+
+	<div id='AboutView' class="hidden center big btn_aboutme">
+		LALAALA
+		<br />
+        <br />
+        <a href='#' onclick="opend('Menu');return false;">Back</a>
+	</div>
+
+	<div id='PortfolioView' class="hidden center big btn_portfolio">
+		LALAALA
+		<br />
+        <br />
+        <a href='#' onclick="opend('Menu');return false;">Back</a>
+	</div>
+
+	<div id='ResumeView' class="hidden center big btn_resume">
+		LALAALA
+		<br />
+        <br />
+        <a href='#' onclick="opend('Menu');return false;">Back</a>
+	</div>
+
+	<div id='ServicesView' class="hidden center big btn_services">
+		LALAALA
+		<br />
+        <br />
+        <a href='#' onclick="opend('Menu');return false;">Back</a>
+	</div>
+
+	<div id='MenuView'>
 		<center>
 			<div class='content' id='content'>
 				<div id='choose'>
@@ -133,13 +371,15 @@ body {
 	 							</div>
 	 						</td>
 	 						<td width='25%'>
-	 							<div class='btn_aboutme'>
-	 								About me
+	 							<div class='btn_aboutme hand' onclick="opend('About');return false;">
+	 								<font face="chalk" color="#fff" size="24">About me</font><br />
+	 								<font color="#fff">Read here about Wesley de Groot.</font>
 	 							</div>
 	 						</td>
 	 						<td width='25%'>
-	 							<div class='btn_portfolio'>
-	 								Portfolio
+	 							<div class='btn_portfolio hand' onclick="opend('Portfolio');return false;">
+	 								<font face="chalk" color="#fff" size="24">Portfolio</font><br />
+	 								See here my Portfolio
 	 							</div>
 	 						</td>
 	 					</tr>
@@ -148,18 +388,23 @@ body {
 	 				<table width="90%">
 	 					<tr>
 	 						<td width='25%'>
-	 							<div class='btn_resume'>
-	 								Resume
+	 							<div class='btn_resume hand' onclick="opend('About');return false;">
+	 								<font face="chalk" color="#fff" size="24">Resume</font><br />
+	 								Resume...
 	 							</div>
 	 						</td>
 	 						<td width='25%'>
 	 							<div class='btn_vCard'>
-	 								Download vCard
+	 								<font face="chalk" color="#fff" size="24">vCard</font><br />
+	 								Download my contact information.
 	 							</div>
 	 						</td>
 	 						<td width='50%'>
 	 							<div class='orange'>
-	 								Social Media...
+	 								<font face="chalk" color="#fff" size="24">Social Media...</font>
+	 								<br />
+	 								TWITTER | PATH | FACEBOOK | GOOGLE<sup>+</sup> | GITHUB | ?<br />
+	 								WDGWV: TWITTER | FACEBOOK | GOOGLE<sup>+</sup> | GITHUB | ?
 	 							</div>
 	 						</td>
 	 					</tr>
@@ -168,8 +413,8 @@ body {
 	 				<table width="90%">
 	 					<tr>
 	 						<td width='25%'>
-	 							<div class='btn_services'>
-	 								Services
+	 							<div class='btn_services hand' onclick="opend('Services');return false;">
+	 								<font face="chalk" color="#fff" size="24">Services</font><br />
 	 							</div>
 	 						</td>
 	 						<td width='50%'>
@@ -177,8 +422,9 @@ body {
 	 								<center>
 	 									<a  class="twitter-timeline"
 	 										href="https://twitter.com/wesdegroot" 
-	 										width="100%" 
-	 										data-chrome="nofooter transparent" 
+	 										width="850" 
+	 										data-link-color="#fff"
+	 										data-chrome="nofooter transparent noborders" 
 	 										data-widget-id="465484716523528192">
 	 											Loading tweets...
 	 									</a>
@@ -201,15 +447,16 @@ body {
 											(document,"script","twitter-wjs");
 										</script>
 										<div class='rightdown logo'>
-											&nbsp;
+											
 										</div>
 									</center>
 								</div>
 							</td>
 	 				
 	 						<td width='25%'>
-	 							<div class='btn_contact'>
-									Contact
+	 							<div class='btn_contact hand' onclick="opend('Contact');return false;">
+									<font face="chalk" color="#fff" size="24">Contact</font><br />
+									Contact me online?
  								</div>
 							</td>
 	 					</tr>
@@ -230,5 +477,8 @@ body {
 				</div>
 			</div>
 		</center>
+	</div>
+
+	</center>
 	</body>
 </html>

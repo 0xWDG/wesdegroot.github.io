@@ -1,0 +1,24 @@
+@font-face {
+  font-family: '"Call Me", (Maybe)?';
+  src: url('chalk.eot'); /* IE9 Compat Modes */
+  src: url('chalk.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('chalk.woff') format('woff'), /* Modern Browsers */
+       url('chalk.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('chalk.svg#a15b3369837405d4c98896089267207e') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  400;
+}
+
+@font-face {
+  font-family: 'iNked God';
+  src: url('iNked God.eot'); /* IE9 Compat Modes */
+  src: url('iNked God.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('iNked God.woff') format('woff'), /* Modern Browsers */
+       url('iNked God.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('iNked God.svg#02f84d367ffa396a5f9b84d17d289bf4') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  400;
+}
+
