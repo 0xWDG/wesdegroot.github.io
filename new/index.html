@@ -127,6 +127,17 @@ body {
 	background-size: 	100%
 }
 
+img.grayscale {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+, Firefox on Android */
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(100%); /* Chrome 19+, Safari 6+, Safari 6+ iOS */
+}
+
+img.grayscale:hover {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");
+    -webkit-filter: grayscale(0%);
+}
+
 .hand {
 	cursor: 			hand;
 }
@@ -249,7 +260,7 @@ body {
 			//console.log("FadeIn: " + what + " | " + count + "%")
 			max = 9
 			if (what != 'MenuView' && what != 'pic1' && what != 'pic2')
-				max = 8;
+				max = 7;
 
     		if (count <= max) 
     		{
@@ -265,8 +276,8 @@ body {
     		{
     			if (what != 'MenuView' && what != 'pic1' && what != 'pic2')
   				{
-					document.getElementById(what).style.opacity = '0.9';
-    				document.getElementById(what).style.filter  = 'alpha(opacity=90);';
+					document.getElementById(what).style.opacity = '0.8';
+    				document.getElementById(what).style.filter  = 'alpha(opacity=80);';
     				document.getElementById(what).style.display = 'block';
     			}
     			else
@@ -398,9 +409,6 @@ body {
         		<td>wesdegroot</td>
         	</tr>
         </table>
-        <br />
-        <br />
-        <a href='#' onclick="opend('Menu');return false;">Back</a>
 	</div>
 
 	<div id='AboutView' class="hidden center big btn_aboutme">
@@ -438,33 +446,25 @@ body {
 					 </td>
 			</tr>
 		</table>
-		<br />
-        <br />
-        <a href='#' onclick="opend('Menu');return false;">Back</a>
 	</div>
 
 	<div id='PortfolioView' class="hidden center big btn_portfolio">
 		<font face="chalk" color="#fff" size="24">Portfolio</font><br />
 		LALAALA
-		<br />
-        <br />
-        <a href='#' onclick="opend('Menu');return false;">Back</a>
 	</div>
 
 	<div id='ResumeView' class="hidden center big btn_resume">
 		<font face="chalk" color="#fff" size="24">Resume</font><br />
 		LALAALA
-		<br />
-        <br />
-        <a href='#' onclick="opend('Menu');return false;">Back</a>
 	</div>
 
 	<div id='ServicesView' class="hidden center big btn_services">
 		<font face="chalk" color="#fff" size="24">Services<br />Powered by WDGWV</font><br />
 		LALAALA
-		<br />
-        <br />
-        <a href='#' onclick="opend('Menu');return false;">Back</a>
+	</div>
+
+	<div id='ExternalView' class='hidden center big btn_about'>
+		<iframe src="#" width="100%" height="100%">...</iframe>
 	</div>
 
 	<div id='MenuView'>
@@ -514,9 +514,27 @@ body {
 	 						<td width='50%'>
 	 							<div class='orange'>
 	 								<font face="chalk" color="#fff" size="24">Social Media...</font>
-	 								<br />
-	 								TWITTER | PATH | FACEBOOK | GOOGLE<sup>+</sup> | GITHUB | ?<br />
-	 								WDGWV: TWITTER | FACEBOOK | GOOGLE<sup>+</sup> | GITHUB | ?
+	 								<br /><br /><br /><br /><br /><br /><br /><br />&nbsp;&nbsp;&nbsp;
+	 								<a target='_new' href='http://www.twitter.com/wesdegroot'><img class='grayscale' src='images/icon/twitter.png' width="32" height="32"></a>
+									&nbsp;
+									<a target='_new' href='http://lnkd.in/bXDfgQ'><img class='grayscale' src='images/icon/linkedin.png' width="32" height="32"></a>
+									&nbsp;
+									<a target='_new' href='http://www.last.fm/user/wesdegroot'><img class='grayscale' src='images/icon/last.fm.png' width="32" height="32"></a>
+									&nbsp;
+									<a target='_new' href='http://www.bihappy.eu/profiel?id=1'><img class='grayscale' src='images/icon/bihappy.png' width="32" height="32"></a>
+									&nbsp;
+									<a target='_new' href='https://www.facebook.com/wesdegroot/'><img class='grayscale' src='images/icon/facebook.png' width="32" height="32"></a>
+									&nbsp;
+									<a target='_new' href='https://youtube.com/wesdegroot'><img class='grayscale' src='images/icon/youtube.png' width="32" height="32"></a>
+									&nbsp;
+									<a target='_new' href='https://plus.google.com/+WesleyDeGroot/about'><img class='grayscale' src='images/icon/googleplus.png' width="32" height="32"></a>
+									&nbsp;
+									<a target='_new' href='https://github.com/wesdegroot'><img class='grayscale' src='images/icon/github.png' width="32" height="32"></a>
+									&nbsp;
+									<a target='_new' href='https://trustcloud.com/!/wesdegroot'><img class='grayscale' src='images/icon/trustcloud.png' width="32" height="32"></a>
+									&nbsp;
+									<a target='_new' href='http://stackoverflow.com/users/1832762/wesdegroot'><img src='images/icon/stackoverflow.png' width="32" height="32"></a>
+									<br />
 	 							</div>
 	 						</td>
 	 					</tr>
