@@ -166,8 +166,24 @@ body {
 }
 
 .big {
-	opacity: 0.8;
-	filter: alpha(opacity=80);
+	opacity: 			0.8;
+	filter: 			alpha(opacity=80);
+}
+
+.CloseView {
+	align: 				right;
+	top: 				60px;
+	right: 				10px;
+	position:		 	fixed;
+	border:				2px solid;
+	border-color: 		red;
+	border-radius:		25px;
+	z-index: 			10;
+	display: 			none;
+}
+
+#MenuView {
+	display: 			block;
 }
 		</style>
 		<script type="text/javascript">
@@ -232,8 +248,8 @@ body {
 		{
 			//console.log("FadeIn: " + what + " | " + count + "%")
 			max = 9
-			if (what != 'MenuView')
-				max = 7;
+			if (what != 'MenuView' && what != 'pic1' && what != 'pic2')
+				max = 8;
 
     		if (count <= max) 
     		{
@@ -247,10 +263,10 @@ body {
     		}
     		else
     		{
-    			if (what != 'MenuView')
+    			if (what != 'MenuView' && what != 'pic1' && what != 'pic2')
   				{
-					document.getElementById(what).style.opacity = '0.8';
-    				document.getElementById(what).style.filter  = 'alpha(opacity=80);';
+					document.getElementById(what).style.opacity = '0.9';
+    				document.getElementById(what).style.filter  = 'alpha(opacity=90);';
     				document.getElementById(what).style.display = 'block';
     			}
     			else
@@ -282,11 +298,39 @@ body {
     		}
 		}
 
+		function changePic ( wich )
+		{
+			if ( wich == 1 )
+			{
+				fadeOut('pic1', 10);
+    			setTimeout(function()
+    								 {
+    							 		fadeIn('pic2', 1);
+    							 	},  1500);
+    			setTimeout(function()
+    								 {
+    							 		changePic(2);
+    							 	 }, 5555);
+			}
+			else
+			{
+				fadeOut('pic2', 10);
+    			setTimeout(function()
+    								 {
+    							 		fadeIn('pic1', 1);
+    							 	},  1500);
+    			setTimeout(function()
+    								 {
+    							 		changePic(1);
+    							 	 }, 5555);
+			}
+		}
+
 		function opend ( what )
 		{
 			if ( lastopen != null && lastopen != what) 
 			{
-				if (what != 'MenuView')
+				if (what != 'Menu')
 					fadeOut(lastopen + 'View', 7);
 				else
 					fadeOut(lastopen + 'View', 10);
@@ -301,28 +345,59 @@ body {
 
 			lastopen = what;
 		}
+
+		function checkClose() 
+		{
+			if ( document.getElementById('MenuView').style.display != 'none' )
+			{
+				if ( document.getElementById('CloseView').style.display != 'none' )
+					fadeOut('CloseView', 10);
+			}
+			else
+			{
+				if ( document.getElementById('CloseView').style.display != 'block' )
+					fadeIn('CloseView',  1);
+			}
+
+			setTimeout(function() { checkClose(); }, 1000);
+		}
+
+    	setTimeout(function() { changePic(1); }, 1000);
+    	setTimeout(function() { checkClose(); }, 1000);
 		</script>
 	</head>
 	<body>
 
-	<center class="white">
-		<a href="#" onclick="opend('Menu');return false;">[HOME]</a>&nbsp;//&nbsp;
-		<a href="#" onclick="opend('Contact');return false;">Contact</a>&nbsp;//&nbsp;
-		&nbsp;//&nbsp;
-		&nbsp;//&nbsp;
-		&nbsp;//&nbsp;
-		&nbsp;//&nbsp;
-		&nbsp;//&nbsp;
-		&nbsp;//&nbsp;
-		<a href="?">Reload</a><br />
+	<div id='CloseView' class="CloseView hand" onclick="opend('Menu');return false;"><img src='images/icon/close_icon.png'></div>
 
+	<center class="white">
 
 	<div id='ContactView' class='hidden center big btn_contact'>
 		<img src="images/map.png" alt="MAP" height="25%" width="100%">
 		<font face="chalk" color="#fff" size="24">Contact Wesley</font><br />
-        Hello<br /><br />
-        bla bla bla...<br />
-        This is a test...<br />
+
+        <table>
+        	<tr>
+        		<td>Name:</td>
+        		<td>Wesley de Groot</td>
+        	</tr>
+        	<tr>
+        		<td>Email (business):</td>
+        		<td>wes@wdgwv.com</td>
+        	</tr>
+        	<tr>
+        		<td>Address:</td>
+        		<td>Baron de Coubertinstraat 19,<br />2037HA Haarlem<br />The Netherlands</td>
+        	</tr>
+        	<tr>
+        		<td>Twitter:</td>
+        		<td>@wesdegroot</td>
+        	</tr>
+        	<tr>
+        		<td>Facebook:</td>
+        		<td>wesdegroot</td>
+        	</tr>
+        </table>
         <br />
         <br />
         <a href='#' onclick="opend('Menu');return false;">Back</a>
@@ -330,7 +405,39 @@ body {
 
 	<div id='AboutView' class="hidden center big btn_aboutme">
 		<font face="chalk" color="#fff" size="24">About Wesley</font><br />
-		LALAALA
+		<table>
+			<tr>
+				<td>Hello, i'm Wesley de Groot<br />
+				23 Years old, and lives in Haarlem (The Netherlands).<br />
+				This need to be filled..</td><td>
+				This need to be filled..<br />
+				This need to be filled..<br />
+				This need to be filled..
+				</td>
+			</tr>
+			<tr>
+				<td></td><td></td>
+			</tr>
+			<tr>
+				<td>
+				<table>
+				<tr><td>Name</td><td>Wesley de Groot</td></tr>
+				<tr><td>D O B</td><td>03-08-1990</td></tr>
+				<tr><td>Address</td><td>Baron de Coubertinstraat 19<br />
+				2037HA, Haarlem<br />
+				The Netherlands</td></tr>
+
+				<tr><td>Phone</td><td>+31642851742</td></tr>
+				<tr><td>E-mail</td><td>wes@wdgwv.com</td></tr>
+				<tr><td>Website</td><td>wdgwv.com</td></tr>
+				<tr><td>Skype</td><td>wesdegroot</td></tr>
+				</table>
+				</td><td width='490' height='490'>
+							<div id='pic1'><img src='./images/assets/pic1.jpg'></div>
+							<div id='pic2'><img src='./images/assets/pic2.jpg'></div>
+					 </td>
+			</tr>
+		</table>
 		<br />
         <br />
         <a href='#' onclick="opend('Menu');return false;">Back</a>
