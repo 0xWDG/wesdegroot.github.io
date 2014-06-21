@@ -187,10 +187,11 @@ img.grayscale:hover {
 	right: 				10px;
 	position:		 	fixed;
 	border:				2px solid;
-	border-color: 		red;
+	border-color: 		transparent;
 	border-radius:		25px;
 	z-index: 			10;
 	display: 			none;
+	background: 		red;
 }
 
 #MenuView {
@@ -373,6 +374,15 @@ img.grayscale:hover {
 			setTimeout(function() { checkClose(); }, 1000);
 		}
 
+		function external ( url )
+		{
+			document.getElementById('ExternalURL').src = url;
+			opend('External');
+		}
+
+		function nopend ( f ) { }
+
+
     	setTimeout(function() { changePic(1); }, 1000);
     	setTimeout(function() { checkClose(); }, 1000);
 		</script>
@@ -417,17 +427,16 @@ img.grayscale:hover {
 			<tr>
 				<td>Hello, i'm Wesley de Groot<br />
 				23 Years old, and lives in Haarlem (The Netherlands).<br />
-				This need to be filled..</td><td>
-				This need to be filled..<br />
-				This need to be filled..<br />
-				This need to be filled..
-				</td>
+				</td><td></td>
 			</tr>
 			<tr>
 				<td></td><td></td>
 			</tr>
 			<tr>
 				<td>
+				I love programming and i almost dream in code<br />
+				- "if you can imagine it it is possible to create"<br />
+				<br /><br /><br /><br /><br /><br /><br /><br /><br />
 				<table>
 				<tr><td>Name</td><td>Wesley de Groot</td></tr>
 				<tr><td>D O B</td><td>03-08-1990</td></tr>
@@ -450,21 +459,49 @@ img.grayscale:hover {
 
 	<div id='PortfolioView' class="hidden center big btn_portfolio">
 		<font face="chalk" color="#fff" size="24">Portfolio</font><br />
-		LALAALA
+		<iframe frameBorder="0" style="background: transparent;" src="http://wdgwv.com/portfolio/noHTML" width="60%" height="90%">
+			Sorry, you need to support iframes.
+		</iframe>
 	</div>
 
 	<div id='ResumeView' class="hidden center big btn_resume">
 		<font face="chalk" color="#fff" size="24">Resume</font><br />
-		LALAALA
+		<br /><br /><br />
+		<font color="#fff">
+			<a href='#' onclick="external('CV-NL.pdf');return false;">CV NL</a>
+<br />
+			<a href='#' onclick="external('CV-EN.pdf');return false;">CV EN</a>
+		</font>
 	</div>
 
 	<div id='ServicesView' class="hidden center big btn_services">
-		<font face="chalk" color="#fff" size="24">Services<br />Powered by WDGWV</font><br />
-		LALAALA
+		<font face="chalk" color="#fff" size="24">Services<br /><sup>.</sup> Powered by WDGWV <sup>.</sup><br /><br /></font><br />
+		<div>
+		<font face="ink" color="#FFF" size="20">* Websites</font><br />
+		<font color="#FFF">
+							Website development is more than just building a website.<br />
+						   	Through our extensive experience we can build websites that are not only attractive and functional, but also do that for which they are intended.<br />
+						   	Your website will instantly attract customers and make people warm for your brand, product or service!<br />
+						   	* We can also develop systems special for you, we have experience with websites about Planning, Week States, Webshop, Games and Social media. For us there is no challenge too far!
+		</font><br />
+		<br /><br />
+		<font face="ink" color="#FFF" size="20">* Design</font><br />
+		<font color="#FFF">
+							<s>Lorem ipsum dolor sit amet, ut mutat admodum scriptorem pri, erat iudico to his. No error has facilis, vim et Summo viris. Ne eam dolore fabellas inciderint. Vide an eam mundi.</s><br />
+						   	<b>No!</b> that is history!<br />
+						   	<br />
+							WDGWV, your Logo, Website, Business cards or App Designen.<br />
+							also we can slice your website (convert to html) so you can get filled, content or fill yourself!<br />
+		</font><br />
+		<br /><br />
+		<font face="ink" color="#FFF" size="20">* Hosting</font><br />
+		<font color="#FFF">We can also offer webhosting for you.</font><br />
+		</font>
+		</div>
 	</div>
 
 	<div id='ExternalView' class='hidden center big btn_about'>
-		<iframe src="#" width="100%" height="100%">...</iframe>
+		<iframe id='ExternalURL' src="#" width="100%" height="100%">...</iframe>
 	</div>
 
 	<div id='MenuView'>
@@ -478,8 +515,13 @@ img.grayscale:hover {
 	 				<table width="90%">
 	 					<tr>
 	 						<td width='50%'>
-	 							<div class='image'>
-	 								HIGHLIGHTED
+	 							<div class='image' style="overflow: scroll;">
+	 								<font color="#FFF">
+	 									Welcome to my (personal) page!<br />
+	 									Click on one of the boxed to see more information about that item<br />
+	 									if you have questions please click on "Contact"<br />
+	 									This website is best viewed with: Safari 7+, Chrome, Firefox, IE 10+.
+	 								</font>
 	 							</div>
 	 						</td>
 	 						<td width='25%'>
@@ -491,7 +533,7 @@ img.grayscale:hover {
 	 						<td width='25%'>
 	 							<div class='btn_portfolio hand' onclick="opend('Portfolio');return false;">
 	 								<font face="chalk" color="#fff" size="24">Portfolio</font><br />
-	 								See here my Portfolio
+	 								<font color="#fff">See here my/our Portfolio</font><br /><br />
 	 							</div>
 	 						</td>
 	 					</tr>
@@ -500,15 +542,19 @@ img.grayscale:hover {
 	 				<table width="90%">
 	 					<tr>
 	 						<td width='25%'>
-	 							<div class='btn_resume hand' onclick="opend('Resume');return false;">
+	 							<div class='btn_resume hand' onclick="nopend('Resume');return false;">
 	 								<font face="chalk" color="#fff" size="24">Resume</font><br />
-	 								Resume...
+	 								<font color="#fff">
+	 								 See my CV/Resume	
+	 								<br /><br />
+	 								<a href='#' onclick="external('CV-NL.pdf');return false;">NL</a> | <a href='#' onclick="external('CV-EN.pdf');return false;">EN</a>
+	 								</font>
 	 							</div>
 	 						</td>
 	 						<td width='25%'>
 	 							<div class='btn_vCard'>
 	 								<font face="chalk" color="#fff" size="24">vCard</font><br />
-	 								Download my contact information.
+	 								<font color="#fff">Download my contact information.<br />(Not yet done, sorry)</font>
 	 							</div>
 	 						</td>
 	 						<td width='50%'>
@@ -545,6 +591,15 @@ img.grayscale:hover {
 	 						<td width='25%'>
 	 							<div class='btn_services hand' onclick="opend('Services');return false;">
 	 								<font face="chalk" color="#fff" size="24">Services</font><br />
+	 								<font color="#fff">See al the services "we<sup>*</sup>" offer.<br />
+	 								<br />
+	 								<br />
+	 								<br />
+	 								<br />
+	 								<br />
+	 								<br />
+	 								<br />
+	 								* Powered by WDGWV</font>
 	 							</div>
 	 						</td>
 	 						<td width='50%'>
@@ -586,7 +641,7 @@ img.grayscale:hover {
 	 						<td width='25%'>
 	 							<div class='btn_contact hand' onclick="opend('Contact');return false;">
 									<font face="chalk" color="#fff" size="24">Contact</font><br />
-									Contact me online?
+									<font color="#fff">Contact me</font>
  								</div>
 							</td>
 	 					</tr>
